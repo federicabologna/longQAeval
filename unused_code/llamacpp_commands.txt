@@ -1,0 +1,15 @@
+srun -p gpu-interactive -n 8 --mem=250gb --constraint="gpu-high" --gres=gpu:6 --pty /bin/bash
+
+CUDA_DOCKER_ARCH=compute_86 PATH=$PATH:/usr/local/cuda/bin make GGML_CUDA=1
+
+llama-server -m Llama-3.3-70B-Instruct-Q4_K_L.gguf --host 0.0.0.0 --port 8282 -ngl 200 -c 4096
+
+#SBATCH --constraint=gpu-high                       # Specify type of GPU \n\
+
+curl --request POST \
+                  --url http://128.84.101.121:8282/completion \
+                  --header "Content-Type: application/json" \
+                  --data '{"prompt": "Building a website can be done in 10 simple steps:","n_predict": 10}'
+
+
+ifconfig: 128.84.100.207
