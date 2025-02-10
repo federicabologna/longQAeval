@@ -12,7 +12,7 @@ def get_response(_system_prompt, _user_prompt, _model='gpt-4-better', _max_token
 
     client = AzureOpenAI(
         azure_endpoint = 'https://endoqa-cornell.openai.azure.com/',
-        api_key= open(os.path.join('../apikeys', 'endoqa-key.txt')).read().strip(),
+        api_key= open(os.path.join('../../PhD/apikeys', 'endoqa-key.txt')).read().strip(),
         api_version="2024-02-01"
     )
 

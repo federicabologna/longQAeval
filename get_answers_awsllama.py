@@ -5,7 +5,6 @@ import argparse
 import json
 import numpy as np
 import pandas as pd
-import torch
 import boto3
 from botocore.exceptions import ClientError
 
@@ -27,8 +26,8 @@ def get_response(_system_prompt, _user_prompt, _max_tokens=300):
     # Create a Bedrock Runtime client in the AWS Region of your choice.
     client = boto3.client("bedrock-runtime",
                           region_name="us-east-2",
-                          aws_access_key_id=open(os.path.join('../apikeys', 'aws_access_key_id.txt')).read().strip(),
-                          aws_secret_access_key=open(os.path.join('../apikeys', 'aws_secret_access_key.txt')).read().strip())
+                          aws_access_key_id=open(os.path.join('../../PhD/apikeys', 'aws_access_key_id.txt')).read().strip(),
+                          aws_secret_access_key=open(os.path.join('../../PhD/apikeys', 'aws_secret_access_key.txt')).read().strip())
     
     # Set the model ID
     model_id = "us.meta.llama3-1-405b-instruct-v1:0"
