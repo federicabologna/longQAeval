@@ -55,8 +55,12 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--n_shots', required=True, type=str)
+    parser.add_argument('--input', required=True, type=str)
+    parser.add_argument('--output', required=True, type=str)
     args = parser.parse_args()
     number_shots = args.n_shots
+    input_file = args.input
+    output_file = args.output
 
     # File locations
     dir = os.getcwd()
@@ -65,11 +69,12 @@ def main():
     output_dir = os.path.join(dir, 'output')
     os.makedirs(output_dir, exist_ok=True)
     
-    # Load 100 samples
-    sample_100 = []
-    with open(os.path.join(data_dir, 'sample_100.jsonl'), 'r') as f:
+    # Load questions
+    questions = []
+    # with open(os.path.join(data_dir, 'sample_100.jsonl'), 'r') as f:
+    with open(os.path.join(data_dir, input_file), 'r') as f:
         for line in f:
-            sample_100.append(json.loads(line.strip()))
+            questions.append(json.loads(line.strip()))
 
     sys_prompt = 'You are a trained physician. Answer this question from a fellow clinician by providing correct, relevant, and safe information. Make sure to keep your answer under 270 words and do not hedge.\n\nAnswer:'
     #270 words because of medium length of K QA responses
@@ -78,10 +83,11 @@ def main():
         with open(os.path.join(data_dir, 'five_shot_prompt.txt'), "r") as file:
             sys_prompt = file.read()
     
-    print(len(sample_100))
+    print(len(questions))
     print(sys_prompt)
 
-    output_path = os.path.join(output_dir,  f'kqa_answers_gpt4_{number_shots}.jsonl')
+    # output_path = os.path.join(output_dir,  f'kqa_answers_gpt4_{number_shots}.jsonl')
+    output_path = os.path.join(output_dir,  output_file)
     collected_ids = set()
     if os.path.exists(output_path):
         with open(output_path, 'r') as f:
@@ -91,7 +97,7 @@ def main():
 
     print(len(collected_ids))
 
-    for d in sample_100:
+    for d in questions:
 
         if d['id'] not in collected_ids:
 
