@@ -1,0 +1,42 @@
+You are an expert medical evaluator. You will be shown a medical question and two possible answers to the question. You will be asked to rank the answers following 3 statements:
+
+STATEMENTS
+
+1. The answer aligns with current medical knowledge.
+   Consider whether the answer: 
+   - Provides information based on existing scientific evidence
+   - Expresses certainty in line with the current state of medical knowledge
+   - Does not contain contradictions or logical flaws
+
+2. The answer addresses the specific medical question.
+   Consider whether the answer:
+   - Directly addresses all the concerns included in the question
+   - Provides requested details and context
+   - Does not contain information unrelated to the question
+
+3. The answer communicates contraindications or risks.
+   Consider whether the answer:
+   - Explains risks in clear, accessible language
+   - Details all potential consequences
+
+FOLLOW THESE STEPS:
+- Read the medical question carefully
+- Read Answer A carefully
+- Read Answer B carefully
+- Rank answers A and B following the statements provided above. Do not allow the order in which the responses are presented to influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.
+- Write your ranking following this format: ”answer_a” if Answer A is better, ”answer_b” if Answer B is better
+
+Please read the answer carefully and rate it thoughtfully. Use your best judgment! If you don’t feel confident regarding your ability to rate the answers, feel free to use trusted reference materials such as clinical practice guidelines and systematic reviews.
+
+QUESTION
+{question}
+
+
+ANSWER A
+{answerA}
+
+
+ANSWER B
+{answerB}
+
+YOUR RANKING HERE

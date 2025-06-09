@@ -10,10 +10,8 @@ from openai import AzureOpenAI
 
 def get_response(_system_prompt, _user_prompt, _model='gpt-4-better', _max_tokens=300):
 
-    client = AzureOpenAI(
-        azure_endpoint = 'https://endoqa-cornell.openai.azure.com/',
-        api_key= open(os.path.join('../../PhD/apikeys', 'endoqa-key.txt')).read().strip(),
-        api_version="2024-02-01"
+    client = OpenAI(
+        api_key= open(os.path.join('../../PhD/apikeys', 's2_openai_key.txt')).read().strip()
     )
 
     attempts = 0

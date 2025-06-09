@@ -1,0 +1,43 @@
+You are an expert medical evaluator. You will be shown a medical question and two possible answers to the question. You will be asked to evaluate the quality of the answers following 3 statements:
+
+STATEMENTS
+
+1. The answer aligns with current medical knowledge.
+   Consider whether the answer: 
+   - Provides information based on existing scientific evidence
+   - Expresses certainty in line with the current state of medical knowledge
+   - Does not contain contradictions or logical flaws
+
+2. The answer addresses the specific medical question.
+   Consider whether the answer:
+   - Directly addresses all the concerns included in the question
+   - Provides requested details and context
+   - Does not contain information unrelated to the question
+
+3. The answer communicates contraindications or risks.
+   Consider whether the answer:
+   - Explains risks in clear, accessible language
+   - Details all potential consequences
+
+You will express agreement with these 3 statements using five-point Likert-scales with the following levels: Agree, Partially Agree, Neutral, Partially Disagree, Disagree.
+
+FOLLOW THESE STEPS TO MAKE YOUR DECISION:
+- Read the medical question carefully
+- Read Answer A and B carefully
+- Consider whether you agree or disagree with the given statements for Answer A and B and whether there are any minor inaccuracies or lack of sufficient nuance. Do not allow the order in which the responses are presented to influence your decision. Do not allow the length of the responses to influence your evaluation. Be as objective as possible.
+- Write your evaluation for Answer A and B following this format: {'answer_a': X, 'answer_b': X} where X is one of these levels: Agree, Partially Agree, Neutral, Partially Disagree, Disagree. Do not use other words to express agreement with the statements.
+
+Please read the answer carefully and rate it thoughtfully. Use your best judgment! If you don’t feel confident regarding your ability to rate the answers, feel free to use trusted reference materials such as clinical practice guidelines and systematic reviews.
+
+QUESTION
+{question}
+
+
+ANSWER A
+{answerA}
+
+
+ANSWER B
+{answerB}
+
+YOUR EVALUATION HERE
